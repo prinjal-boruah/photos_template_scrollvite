@@ -222,71 +222,6 @@ const ScrollInvitation = ({ event, index }) => {
   );
 };
 
-/* ──────────────────────────────────────────────
-   Flowing Wave SVG — golden sine wave lines
-   ────────────────────────────────────────────── */
-const FlowingWave = ({ className, style }) => (
-  <svg className={`events-wave ${className || ''}`} style={style} viewBox="0 0 400 200" fill="none" preserveAspectRatio="none">
-    <path d="M0 100 C50 40, 100 160, 150 100 S250 40, 300 100 S400 160, 400 100" stroke="rgba(212,175,55,0.3)" strokeWidth="1.2" fill="none"/>
-    <path d="M0 110 C50 50, 100 170, 150 110 S250 50, 300 110 S400 170, 400 110" stroke="rgba(212,175,55,0.22)" strokeWidth="1" fill="none"/>
-    <path d="M0 90 C50 30, 100 150, 150 90 S250 30, 300 90 S400 150, 400 90" stroke="rgba(212,175,55,0.25)" strokeWidth="1" fill="none"/>
-    <path d="M0 120 C50 60, 100 180, 150 120 S250 60, 300 120 S400 180, 400 120" stroke="rgba(212,175,55,0.15)" strokeWidth="0.8" fill="none"/>
-    <path d="M0 80 C50 20, 100 140, 150 80 S250 20, 300 80 S400 140, 400 80" stroke="rgba(212,175,55,0.15)" strokeWidth="0.8" fill="none"/>
-  </svg>
-);
-
-/* ──────────────────────────────────────────────
-   Geometric Diamond — outlined crystal shape
-   ────────────────────────────────────────────── */
-const GeoDiamond = ({ className, style }) => (
-  <svg className={`events-diamond ${className || ''}`} style={style} viewBox="0 0 40 50" fill="none">
-    <path d="M20 2 L38 18 L20 48 L2 18 Z" stroke="rgba(212,175,55,0.3)" strokeWidth="1.2" fill="none"/>
-    <path d="M20 8 L32 18 L20 42 L8 18 Z" stroke="rgba(212,175,55,0.15)" strokeWidth="0.7" fill="none"/>
-  </svg>
-);
-
-/* ──────────────────────────────────────────────
-   Sparkle Dot — tiny golden glitter particle
-   ────────────────────────────────────────────── */
-const Sparkle = ({ className, style }) => (
-  <div className={`events-sparkle ${className || ''}`} style={style} />
-);
-
-/* ──────────────────────────────────────────────
-   Decorative Background Layer
-   All the waves, diamonds, and sparkles
-   ────────────────────────────────────────────── */
-const DecorativeBackground = () => (
-  <div className="events-decorations" aria-hidden="true">
-    {/* ── Flowing Waves ── */}
-    <FlowingWave className="wave-1" />
-    <FlowingWave className="wave-2" />
-    <FlowingWave className="wave-3" />
-    <FlowingWave className="wave-4" />
-
-    {/* ── Geometric Diamonds ── */}
-    <GeoDiamond className="diamond-1" />
-    <GeoDiamond className="diamond-2" />
-    <GeoDiamond className="diamond-3" />
-    <GeoDiamond className="diamond-4" />
-    <GeoDiamond className="diamond-5" />
-    <GeoDiamond className="diamond-6" />
-
-    {/* ── Sparkle Particles ── */}
-    <Sparkle className="sparkle-1" />
-    <Sparkle className="sparkle-2" />
-    <Sparkle className="sparkle-3" />
-    <Sparkle className="sparkle-4" />
-    <Sparkle className="sparkle-5" />
-    <Sparkle className="sparkle-6" />
-    <Sparkle className="sparkle-7" />
-    <Sparkle className="sparkle-8" />
-    <Sparkle className="sparkle-9" />
-    <Sparkle className="sparkle-10" />
-    <Sparkle className="sparkle-11" />
-    <Sparkle className="sparkle-12" />
-  </div>
-);
 
 /* ──────────────────────────────────────────────
    Events Section — Main Export
@@ -295,7 +230,6 @@ const EventsSection = () => {
   return (
     <div className="events-section">
       {/* Decorative background (waves, diamonds, sparkles) */}
-      <DecorativeBackground />
 
       {/* Section heading */}
       <section className="events-heading-section">
