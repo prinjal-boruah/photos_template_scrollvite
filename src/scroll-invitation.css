@@ -1,0 +1,454 @@
+/* ═══════════════════════════════════════════════
+   Scroll Invitation — Complete Styles
+   
+   Physical scroll mechanics:
+   - Paper is WRAPPED around two wooden handles
+   - The cloth covers the bar, only finial knobs visible
+   - Paper section unrolls between the handles
+   ═══════════════════════════════════════════════ */
+
+.events-section {
+  background-color: #F9F6F0;
+  position: relative;
+  overflow: hidden;
+}
+
+.events-heading-section {
+  padding: 6rem 1rem 4rem;
+  background-color: #F9F6F0;
+  overflow: hidden;
+}
+
+/* ── Tall tracking wrapper — gives scroll distance for animation ── */
+.scroll-tracking-wrapper + .scroll-tracking-wrapper {
+  margin-top: 40vh; /* adjust until the gap feels right */
+}
+
+/* ── Sticky container — stays pinned in viewport center ── */
+.scroll-sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* ── Each scroll invitation appears in the center ── */
+.scroll-invitation {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  will-change: transform;
+}
+
+/* ═══════════════════════════════════════════════
+   Wooden Handle
+   ═══════════════════════════════════════════════ */
+.handle-area {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.scroll-handle {
+  width: 100%;
+  filter: drop-shadow(0 3px 6px rgba(40,20,5,0.4));
+}
+
+/* ── Paper wrap covering the bar (same texture as content) ── */
+.paper-wrap {
+  position: absolute;
+  /* Cover the bar, leave finials (~10% each side) visible */
+  top: 0;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  z-index: 11;
+  /* Same parchment texture as the content background + cylindrical shading */
+  background:
+    linear-gradient(to bottom,
+      rgba(255,248,240,0.6) 0%,
+      rgba(255,255,255,0.1) 20%,
+      transparent 35%,
+      transparent 65%,
+      rgba(0,0,0,0.03) 80%,
+      rgba(0,0,0,0.08) 100%
+    ),
+    url('/images/parchment_texture.png');
+  background-size: 100% 100%, cover;
+  background-position: center, center;
+}
+
+/* ═══════════════════════════════════════════════
+   Revealed Paper Section — grows between handles
+   Width matches the paper-wrap exactly (80%)
+   No gaps — flush against handles
+   ═══════════════════════════════════════════════ */
+.paper-revealed {
+  width: 80%; /* matches paper-wrap: left 10% + right 10% = 80% */
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+  /* Negative margins to eliminate any gap between handle and paper */
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+
+.paper-inner {
+  position: relative;
+  background:
+    /* Soft center glow */
+    radial-gradient(ellipse at center, rgba(255,250,244,0.5) 0%, transparent 65%),
+    /* Parchment texture */
+    url('/images/parchment_texture.png');
+  background-size: 100% 100%, cover;
+  background-position: center, center;
+  border-left: 1px solid rgba(180, 150, 120, 0.15);
+  border-right: 1px solid rgba(180, 150, 120, 0.15);
+  padding: 44px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════════
+   Content Styles
+   ═══════════════════════════════════════════════ */
+
+.scroll-header-ornament {
+  font-size: 26px;
+  color: #D4AF37;
+  margin-bottom: 4px;
+  opacity: 0.65;
+}
+
+.scroll-invitation-line {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: rgba(62, 39, 35, 0.45);
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+/* ── Floral Wreath ── */
+.scroll-wreath-container {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.scroll-wreath-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.7;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 42%, transparent 70%);
+  mask-image: radial-gradient(ellipse at center, black 42%, transparent 70%);
+}
+
+.scroll-event-name-overlay {
+  position: relative;
+  z-index: 2;
+}
+
+.scroll-event-name {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.6rem;
+  color: #3E2723;
+  line-height: 1.1;
+  font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* ── Description ── */
+.scroll-description {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.75;
+  color: rgba(62, 39, 35, 0.68);
+  max-width: 310px;
+  margin: 0 auto 16px;
+  text-align: center;
+}
+
+/* ── Divider ── */
+.scroll-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  color: #D4AF37;
+  font-size: 10px;
+}
+
+.divider-line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #D4AF37, transparent);
+}
+
+/* ── Event Details ── */
+.scroll-details {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-bottom: 16px;
+}
+
+.scroll-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.82rem;
+  color: rgba(62, 39, 35, 0.6);
+  letter-spacing: 0.04em;
+}
+
+.scroll-detail-row svg {
+  color: #D4AF37;
+  flex-shrink: 0;
+}
+
+/* ── Footer Ornament ── */
+.scroll-footer-ornament {
+  font-size: 22px;
+  color: #D4AF37;
+  opacity: 0.4;
+  transform: rotate(180deg);
+  margin-top: 4px;
+}
+
+/* ── Corner Floral Images ── */
+.scroll-corner-img {
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse at var(--co, center), black 15%, transparent 65%);
+  mask-image: radial-gradient(ellipse at var(--co, center), black 15%, transparent 65%);
+}
+
+.corner-tl { top: 6px; left: 6px; --co: top left; }
+.corner-tr { top: 6px; right: 6px; transform: scaleX(-1); --co: top left; }
+.corner-bl { bottom: 6px; left: 6px; transform: scaleY(-1); --co: top left; }
+.corner-br { bottom: 6px; right: 6px; transform: scale(-1,-1); --co: top left; }
+
+/* ═══════════════════════════════════════════════
+   Responsive
+   ═══════════════════════════════════════════════ */
+
+@media (max-width: 480px) {
+  .scroll-invitation {
+    max-width: 320px;
+  }
+
+  .paper-inner {
+    padding: 32px 18px 28px;
+  }
+
+  .scroll-wreath-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .scroll-event-name {
+    font-size: 2.1rem;
+  }
+
+  .scroll-description {
+    font-size: 0.9rem;
+    max-width: 240px;
+  }
+
+  .scroll-corner-img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .scroll-detail-row {
+    font-size: 0.75rem;
+  }
+
+  .events-heading-section {
+    padding: 4rem 1rem 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .scroll-invitation {
+    max-width: 480px;
+  }
+
+  .paper-inner {
+    padding: 50px 40px 44px;
+  }
+
+  .scroll-wreath-container {
+    width: 210px;
+    height: 210px;
+  }
+
+  .scroll-event-name {
+    font-size: 3rem;
+  }
+
+  .scroll-description {
+    font-size: 1.05rem;
+    max-width: 350px;
+  }
+
+  .scroll-corner-img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .scroll-invitation {
+    max-width: 500px;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   Decorative Background — waves, diamonds, sparkles
+   ═══════════════════════════════════════════════ */
+
+.events-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* ── Flowing Waves ── */
+.events-wave {
+  position: absolute;
+  width: 350px;
+  height: 180px;
+  opacity: 0.7;
+}
+
+.wave-1 {
+  top: 8%;
+  left: -5%;
+  transform: rotate(-15deg);
+  animation: waveFloat1 18s ease-in-out infinite;
+}
+.wave-2 {
+  top: 30%;
+  right: -8%;
+  transform: rotate(10deg) scaleX(-1);
+  animation: waveFloat2 22s ease-in-out infinite;
+}
+.wave-3 {
+  top: 55%;
+  left: -3%;
+  transform: rotate(-8deg);
+  animation: waveFloat3 20s ease-in-out infinite;
+}
+.wave-4 {
+  top: 78%;
+  right: -6%;
+  transform: rotate(12deg) scaleX(-1);
+  animation: waveFloat4 24s ease-in-out infinite;
+}
+
+@keyframes waveFloat1 {
+  0%, 100% { transform: rotate(-15deg) translateY(0) translateX(0); }
+  50% { transform: rotate(-12deg) translateY(-20px) translateX(10px); }
+}
+@keyframes waveFloat2 {
+  0%, 100% { transform: rotate(10deg) scaleX(-1) translateY(0); }
+  50% { transform: rotate(13deg) scaleX(-1) translateY(-25px); }
+}
+@keyframes waveFloat3 {
+  0%, 100% { transform: rotate(-8deg) translateY(0) translateX(0); }
+  50% { transform: rotate(-5deg) translateY(-15px) translateX(8px); }
+}
+@keyframes waveFloat4 {
+  0%, 100% { transform: rotate(12deg) scaleX(-1) translateY(0); }
+  50% { transform: rotate(15deg) scaleX(-1) translateY(-22px); }
+}
+
+/* ── Geometric Diamonds ── */
+.events-diamond {
+  position: absolute;
+  width: 36px;
+  height: 45px;
+}
+
+.diamond-1 { top: 12%; left: 8%;  animation: diamondDrift 16s ease-in-out infinite; }
+.diamond-2 { top: 25%; right: 12%; animation: diamondDrift 20s ease-in-out infinite 3s; }
+.diamond-3 { top: 48%; left: 5%;  animation: diamondDrift 18s ease-in-out infinite 6s; }
+.diamond-4 { top: 65%; right: 8%; animation: diamondDrift 22s ease-in-out infinite 2s; }
+.diamond-5 { top: 82%; left: 12%; animation: diamondDrift 19s ease-in-out infinite 8s; }
+.diamond-6 { top: 92%; right: 15%; animation: diamondDrift 21s ease-in-out infinite 5s; }
+
+@keyframes diamondDrift {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+  25% { transform: translateY(-12px) rotate(8deg); opacity: 0.9; }
+  50% { transform: translateY(-5px) rotate(-5deg); opacity: 0.7; }
+  75% { transform: translateY(-18px) rotate(3deg); opacity: 0.85; }
+}
+
+/* ── Sparkle Particles ── */
+.events-sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,0.6) 0%, rgba(212,175,55,0) 70%);
+  box-shadow: 0 0 6px 1px rgba(212,175,55,0.15);
+}
+
+.sparkle-1  { top: 5%;  left: 15%; animation: sparkleGlow 4s ease-in-out infinite 0s; }
+.sparkle-2  { top: 14%; right: 20%; animation: sparkleGlow 5s ease-in-out infinite 1.2s; width: 5px; height: 5px; }
+.sparkle-3  { top: 22%; left: 25%; animation: sparkleGlow 3.5s ease-in-out infinite 0.6s; }
+.sparkle-4  { top: 35%; right: 10%; animation: sparkleGlow 4.5s ease-in-out infinite 2s; width: 3px; height: 3px; }
+.sparkle-5  { top: 42%; left: 8%;  animation: sparkleGlow 5.5s ease-in-out infinite 0.3s; }
+.sparkle-6  { top: 55%; right: 25%; animation: sparkleGlow 4s ease-in-out infinite 1.8s; width: 5px; height: 5px; }
+.sparkle-7  { top: 60%; left: 18%; animation: sparkleGlow 3.8s ease-in-out infinite 3s; }
+.sparkle-8  { top: 70%; right: 15%; animation: sparkleGlow 5s ease-in-out infinite 0.8s; width: 3px; height: 3px; }
+.sparkle-9  { top: 78%; left: 10%; animation: sparkleGlow 4.2s ease-in-out infinite 2.5s; }
+.sparkle-10 { top: 85%; right: 8%; animation: sparkleGlow 3.6s ease-in-out infinite 1.5s; width: 5px; height: 5px; }
+.sparkle-11 { top: 90%; left: 22%; animation: sparkleGlow 5.2s ease-in-out infinite 0.4s; }
+.sparkle-12 { top: 95%; right: 18%; animation: sparkleGlow 4.8s ease-in-out infinite 3.5s; width: 3px; height: 3px; }
+
+@keyframes sparkleGlow {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.8); }
+}
+
+/* ── Hide decorations on very small screens to avoid clutter ── */
+@media (max-width: 480px) {
+  .events-wave {
+    width: 200px;
+    height: 100px;
+  }
+  .events-diamond {
+    width: 24px;
+    height: 30px;
+  }
+}
